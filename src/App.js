@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Users from "./Users";
 import { useState } from "react";
+import { GrNext, GrPrevious } from "react-icons/gr";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,15 +15,20 @@ function App() {
     }
   };
   return (
-    <div className="App">
-      <Users className="item" url={url} changePage={count} />
-      <button className="btn" onClick={() => setCountToPrevious()}>
-        Previous
-      </button>
-      <button className="btn" onClick={() => setCount(count + 20)}>
-        Next
-      </button>
-    </div>
+    <main>
+      <section>
+        <h1>User List</h1>
+        <Users url={url} changePage={count} />
+        <div className="btn-wrap">
+          <button className="btn" onClick={() => setCountToPrevious()}>
+            <GrPrevious />
+          </button>
+          <button className="btn" onClick={() => setCount(count + 20)}>
+            <GrNext />
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }
 

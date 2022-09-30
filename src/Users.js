@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { FaRegTimesCircle } from "react-icons/fa";
+import Characteristics from "./Characteristics";
 
 const Users = ({ url }) => {
   const [users, setUsers] = useState([]);
@@ -16,19 +17,26 @@ const Users = ({ url }) => {
   };
   return (
     <>
-      <div className="grid-container">
+      <div className="user-container">
         {users.map((user) => {
           return (
-            <div className="grid-item" key={user.id}>
-              <img className="user-img" src={user.image} alt={user.username} />
-              <div>
-                {user.firstName} {user.lastName}
-              </div>
-              <div>{user.email}</div>
-              <button
-                className="btn-delete"
-                onClick={() => removeItem(user.id)}
-              >
+            <div className="user-item" key={user.id}>
+              <section>
+                <img src={user.image} alt={user.username} />
+                <article>
+                  <h4>{user.firstName}</h4>
+                  <p>
+                    {user.address.city}, {user.address.state}
+                  </p>
+                </article>
+              </section>
+              <Characteristics
+                height={user.height}
+                weight={user.weight}
+                eyeColor={user.eyeColor}
+                bloodGroup={user.bloodGroup}
+              />
+              <button onClick={() => removeItem(user.id)}>
                 <FaRegTimesCircle />
               </button>
             </div>
