@@ -2,23 +2,23 @@ import React from "react";
 import { MdBloodtype } from "react-icons/md";
 import { GiBodyHeight, GiWeightScale } from "react-icons/gi";
 import { BsFillEyeFill } from "react-icons/bs";
-const Characteristics = (props) => {
+const Characteristics = ({ height, weight, eyeColor, bloodGroup }) => {
   return (
-    <div className="characteristics-wrap">
-      <div className="characteristics">
+    <div className="user-characteristics">
+      <div className="user-characteristic">
         <GiBodyHeight />
-        <p>{props.height}</p>
+        <p>{height}</p>
       </div>
-      <div className="characteristics">
+      <div className="user-characteristic">
         <GiWeightScale />
-        <p> {props.weight} </p>
+        <p> {weight} </p>
       </div>
-      <div className="characteristics">
+      <div className="user-characteristic">
         <BsFillEyeFill />
-        <p> {props.eyeColor} </p>
+        <p> {eyeColor} </p>
       </div>
-      <div className="characteristics">
-        <MdBloodtype /> <p>{props.bloodGroup} </p>
+      <div className="user-characteristic">
+        <MdBloodtype /> <p>{bloodGroup} </p>
       </div>
     </div>
   );
